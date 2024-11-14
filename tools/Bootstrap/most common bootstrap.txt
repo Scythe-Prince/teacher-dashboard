@@ -1,0 +1,54 @@
+container, row : to make a grid template
+sticky-top : for navbar to be fixed top 
+w-100 : width100
+
+
+//margins and paddings
+ms : margin left
+me : margin right
+pt : padding top
+pb : padding bottom
+//addition -> mb-lg-0 margin bottom 0 in large screen
+//addition -> p-sm-3 padding 3 in small screen
+
+d-flex : display flex ------->> justify-content-center, align-items-center
+d-none : display none
+d-block : display block
+
+//for buttons
+btn : to make a button 
+rounded-pill : to make a slightly effect on the borders 
+rounded-circle : to make it circle (border-radius:50%)
+
+//for position
+position-relative : relative
+position-absolute : absolute
+bottom-0
+left-4
+
+//media examples (grid area)
+col-md-6 
+col-lg-4
+col-sm-12
+
+//text
+text-uppercase
+text-lowercase
+text-black-50 : slightly dark
+text-wihte-50 : slightly light
+text-light
+text-dark
+text-center : to center page elements
+text-start : left
+text-end : right
+fw-bold : font-weight:bold;
+
+//img
+img-fluid : to be in it's frame not out
+
+//ul, ol
+list-unstyled
+
+
+//FontAwesome
+fa-4x to make it bigger 4 times

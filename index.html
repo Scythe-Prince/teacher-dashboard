@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./tools/Bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="dashboardstyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="tools/Bootstrap/bootstrap.bundle.min.js"></script>
+  <title>لوحة الأساتذة</title>
+</head>
+
+<body dir="rtl">
+  <!-- sidebar -->
+  <nav class="sidebar">
+    <header>
+      <div class="image-text">
+        <span class="image">
+          <img src="faculty.png" alt="شعار" />
+        </span>
+        <div class="text header-text">
+          <span class="name1">الدراسات</span>
+          <span class="name2">العليا</span>
+        </div>
+      </div>
+      <i class="bx bx-chevron-left toggle"></i>
+    </header>
+    <div class="menu-bar">
+      <div class="top-menu">
+        <ul class="links nav-tabs" id="myTab" role="tablist">
+          <li class="nav-link nav-item" id="dashboardBtn" role="presentation">
+            <a href="#dashboard" class="nav-link active" id="dashboard-tab" data-bs-toggle="tab"
+              data-bs-target="#dashboard-tab-pane" role="tab" aria-controls="dashboard-tab-pane" aria-selected="true">
+              <i class="bx bx-pie-chart-alt-2 icon"></i>
+              <div class="text nav-text">
+                لوحة البيانات
+              </div>
+            </a>
+          </li>
+          <li class="nav-link nav-item" id="diplomaBtn" role="presentation">
+            <a href="#diploma" class="nav-link" id="diploma-tab" data-bs-toggle="tab" data-bs-target="#diploma-tab-pane"
+              role="tab" aria-controls="diploma-tab-pane" aria-selected="false">
+              <i class="bx bx-certification icon"></i>
+              <div class="text nav-text">
+                جدول الدبلومة
+              </div>
+            </a>
+          </li>
+          <li class="nav-link nav-item" id="masterBtn" role="presentation">
+            <a href="#master" class="nav-link" id="master-tab" data-bs-toggle="tab" data-bs-target="#master-tab-pane"
+              role="tab" aria-controls="master-tab-pane" aria-selected="false">
+              <i class="bx bx-book icon"></i>
+              <div class="text nav-text">
+                جدول الماجستير
+              </div>
+            </a>
+          </li>
+          <li class="nav-link nav-item" id="doctorateBtn" role="presentation">
+            <a href="#doctorate" class="nav-link" id="doctorate-tab" data-bs-toggle="tab"
+              data-bs-target="#doctorate-tab-pane" role="tab" aria-controls="doctorate-tab-pane" aria-selected="false">
+              <i class="bx bx-brain icon"></i>
+              <div class="text nav-text">
+                جدول الدكتوراة
+              </div>
+            </a>
+          </li>
+          <li class="nav-link nav-item" id="optionBtn" role="presentation">
+            <a href="#options" class="nav-link" id="options-tab" data-bs-toggle="tab" data-bs-target="#options-tab-pane"
+              role="tab" aria-controls="options-tab-pane" aria-selected="false">
+              <i class="fa-regular fa-window-restore " style="  font-size: 20px;
+              min-width: 60px;
+              display: flex;
+              align-items: center;
+              justify-content: center;"></i>
+              <div class="text nav-text">
+                تعديل البيانات
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="bottom-menu">
+        <li class="nav-link logout-list" id="logout">
+          <a href="#" class="logout-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="bx bx-log-in-circle icon"></i>
+            <span class="logout-text text">تسجيل الخروج</span>
+          </a>
+        </li>
+        <li class="mode">
+          <div class="moon-sun">
+            <i class="bx bx-moon icon moon"></i>
+            <!-- <i class="bx bx-sun icon sun"></i> -->
+          </div>
+          <span class="mode-text text">وضع ليلي</span>
+          <div class="toggle-switch">
+            <span class="switch"></span>
+          </div>
+        </li>
+      </div>
+    </div>
+  </nav>
+  <!-- sidebar -->
+  <!-- logout popup -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger">
+          <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">الخروج ؟</h1>
+          <button type="button" class="btn-close m-0 text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
+          <button type="button" class="btn btn-danger">تسجيل الخروج</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- logout popup -->
+  <!-- content -->
+  <section class="content">
+    <div class="navbar_item me-auto">
+      <div id="profile">
+        <img src="man.png" alt="" class="profile-pic ps-3" />
+      </div>
+    </div>
+    <div>
+      <div class="tab-content" id="myTabContent">
+        <!-- dashboard -->
+        <main class="tab-pane fade show active" id="dashboard-tab-pane" role="tabpanel" aria-labelledby="dashboard-tab"
+          tabindex="0">
+          <div class="welcome">
+            <div class="text">
+              <span class="hi">اهلا, مرحبا بعودتك !</span>
+              <span class="following d-block h5">فيما يلي بعض البيانات التي قد تهمك</span>
+            </div>
+            <div class="pic m-2">
+              <!-- <img src="undraw_Welcoming.png" alt=""> -->
+              <object data="undraw_welcoming_re_x0qo.svg" width="200" height="200" type=""></object>
+            </div>
+          </div>
+          <hr style="width: 25%; margin: auto" />
+          <br />
+          <div class="dashboard-cards">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card bg-c-blue order-card">
+                    <div class="card-block">
+                      <h6 class="m-b-20 text-light">العدد الكلي للمسجلين</h6>
+                      <h2 class="text-right">
+                        <i class="bx bxs-data text-light"></i><span class="text-light">16</span>
+                      </h2>
+                      <p class="m-b-0 text-white-50">تجدهم في القائمة اليمنى</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card bg-c-green order-card">
+                    <div class="card-block">
+                      <h6 class="m-b-20 text-light"> المسجلين لدرجة الدبلومة</h6>
+                      <h2 class="text-right">
+                        <i class="bx bxs-certification text-light"></i><span class="text-light">7</span>
+                      </h2>
+                      <p class="m-b-0 text-white-50">تجدهم في القائمة اليمنى</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- try to change the 6 in col-md-6 to 4 so that it can contains 3  and try col-xl-3-->
+                <div class="col-md-6">
+                  <div class="card bg-c-yellow order-card">
+                    <div class="card-block">
+                      <h6 class="m-b-20 text-light"> المسجلين لدرجة الماجستير</h6>
+                      <h2 class="text-right">
+                        <i class="bx bxs-book text-light"></i><span class="text-light">5</span>
+                      </h2>
+                      <p class="m-b-0 text-white-50">تجدهم في القائمة اليمنى</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card bg-c-pink order-card">
+                    <div class="card-block">
+                      <h6 class="m-b-20 text-light"> المسجلين لدرجة الدكتوراة</h6>
+                      <h2 class="text-right">
+                        <i class='bx bxs-brain text-light'></i></i><span class="text-light">4</span>
+                      </h2>
+                      <p class="m-b-0 text-white-50">تجدهم في القائمة اليمنى</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- dashboard -->
+        <!-- diploma -->
+        <main class="tab-pane fade" id="diploma-tab-pane" role="tabpanel" aria-labelledby="diploma-tab" tabindex="0">
+          <div class="m-3 mb-4 position-relative py-2 px-4 text-bg-dark border border-dark rounded-pill text-center h3">
+            جدول الملتحقين بدرجة الدبلومة <svg width="1em" height="1em" viewBox="0 0 16 16"
+              class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-dark)"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+          </div>
+          <div>
+            <section class="table__body">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الرقم </th>
+                    <th>اسم الطالب </th>
+                    <th>عنوان الرسالة </th>
+                    <th>تاريخ التسجيل </th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <!-- <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td> -->
+
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <!-- <td><span class="rounded-pill bg-danger text-light ps-3 pt-1 pe-3 pb-2">غير ممنوح</span></td> -->
+
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </main>
+        <!-- diploma -->
+        <!-- master -->
+        <main class="tab-pane fade" id="master-tab-pane" role="tabpanel" aria-labelledby="master-tab" tabindex="0">
+          <div class="m-3 mb-4 position-relative py-2 px-4 text-bg-dark border border-dark rounded-pill text-center h3">
+            جدول الملتحقين بدرجة بالماجستير <svg width="1em" height="1em" viewBox="0 0 16 16"
+              class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-dark)"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+          </div>
+          <div>
+            <section class="table__body">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الرقم </th>
+                    <th>اسم الطالب </th>
+                    <th>عنوان الرسالة </th>
+                    <th>تاريخ التسجيل </th>
+                    <th>حالة المنح</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <!-- <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td> -->
+                    <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td>
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <!-- <td><span class="rounded-pill bg-danger text-light ps-3 pt-1 pe-3 pb-2">غير ممنوح</span></td> -->
+                    <td><span class="rounded-pill bg-danger text-light ps-2 pt-1 pe-2 pb-2">غير </span></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <td><span class="rounded-pill bg-danger text-light ps-2 pt-1 pe-2 pb-2">غير </span></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </main>
+        <!-- master -->
+        <!-- doctorate -->
+        <main class="tab-pane fade" id="doctorate-tab-pane" role="tabpanel" aria-labelledby="doctorate-tab"
+          tabindex="0">
+          <div class="m-3 mb-4 position-relative py-2 px-4 text-bg-dark border border-dark rounded-pill text-center h3">
+            جدول الملتحقين بدرجة الدكتوراة <svg width="1em" height="1em" viewBox="0 0 16 16"
+              class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-dark)"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+          </div>
+          <div>
+            <section class="table__body">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الرقم </th>
+                    <th>اسم الطالب </th>
+                    <th>عنوان الرسالة </th>
+                    <th>تاريخ التسجيل </th>
+                    <th>حالة المنح</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <!-- <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td> -->
+                    <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td>
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <!-- <td><span class="rounded-pill bg-danger text-light ps-3 pt-1 pe-3 pb-2">غير ممنوح</span></td> -->
+                    <td><span class="rounded-pill bg-danger text-light ps-2 pt-1 pe-2 pb-2">غير </span></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <td><span class="rounded-pill bg-danger text-light ps-2 pt-1 pe-2 pb-2">غير </span></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>احمد فتيح</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td> سارة احمد</td>
+                    <td>كيمياء صناعية</td>
+                    <td>17 Dec, 2022</td>
+                    <td><span class="rounded-pill bg-success text-light ps-3 pt-1 pe-3 pb-2">ممنوح</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </main>
+        <!-- doctorate -->
+        <!-- options -->
+        <main style="background-color: white;"class="tab-pane fade" id="options-tab-pane" role="tabpanel" aria-labelledby="options-tab" tabindex="0">
+          <div class="m-3 mb-4 position-relative py-2 px-4 text-bg-dark border border-dark rounded-pill text-center h3">
+            الادوات التي تساعدك في تعديل البيانات<svg width="1em" height="1em" viewBox="0 0 16 16"
+              class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-dark)"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+          </div>
+          <div class="card_items contain">
+            <div class="card_el">
+              <h4>قم بحذف البيانات !</h4>
+              <div class="image_container">
+                <img src="photos/Code typing-bro.png" alt="">
+              </div>
+              <div class="link_holder">
+                <a href="">حذف</a>
+               </div> 
+            </div>
+            <div class="card_el">
+              <h4>قم باضافة المشرفين !</h4>
+              <div class="image_container">
+                <img src="photos/Open source-bro.png" alt="">
+              </div>
+              <div class="link_holder">
+                <a href="">اضافة مشرفين</a>
+               </div> 
+            </div>
+            <div class="card_el">
+              <h4>قم اضافة البيانات !</h4>
+              <div class="image_container">
+                <img src="photos/Open source-cuate.png" alt="">
+              </div>
+              <div class="link_holder">
+                <a href="">اضافة بيانات</a>
+               </div> 
+            </div>
+            <div class="card_el">
+              <h4>قم بتعديل البيانات !</h4>
+              <div class="image_container">
+                <img src="photos/Programming-pana.png" alt="">
+              </div>
+              <div class="link_holder">
+                <a href="">تعديل</a>
+               </div> 
+            </div>
+            <div class="card_el">
+              <h4>قم باضافة مستخدمين !</h4>
+              <div class="image_container">
+                <img src="photos/Team goals-rafiki.png" alt="">
+              </div>
+              <div class="link_holder">
+                <a href="">اضافة مستخدم</a>
+               </div> 
+            </div>
+          </div>
+        </main>
+        <!-- options -->
+
+      </div>
+  </section>
+  <!-- content -->
+</body>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+<script src="dashboardscript.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
